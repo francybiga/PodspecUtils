@@ -18,9 +18,10 @@ final class Shell {
         self.path = path
     }
     
-    func execute(_ command: String) throws -> String {
+    public func execute(_ command: String, in cmdPath: String = ".") throws -> String {
         let task = Process()
-        task.arguments = ["-c", command]
+        let cmd = "cd \(cmdPath);\(command)"
+        task.arguments = ["-c", cmd]
         task.launchPath = path
         
         let outPipe = Pipe()

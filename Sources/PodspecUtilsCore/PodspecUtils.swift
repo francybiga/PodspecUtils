@@ -14,7 +14,7 @@ public final class PodspecUtils {
         
         let shell = Shell()
         do {
-            print(try shell.execute("cd /tmp; pwd"))
+            print(try shell.execute("pwd", in: "~"))
         } catch ShellError.standard(let msg) {
             print(msg)
         }
